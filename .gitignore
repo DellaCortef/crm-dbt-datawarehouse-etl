@@ -1,4 +1,7 @@
 # enviroments
 .env
 .venv
-profiles.yml
+
+target/
+dbt_packages/
+logs/
