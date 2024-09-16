@@ -6,7 +6,7 @@ WITH sales_by_seller AS (
         product_quantity, 
         product_type 
     FROM 
-        {{source ('silver_sales') }}  
+        {{ ref('silver_sales') }}  
     WHERE 
         product_value < 6000 
         AND data >= '2024-09-01' 

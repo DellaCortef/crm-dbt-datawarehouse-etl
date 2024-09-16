@@ -8,7 +8,7 @@ WITH cleaned_data AS (
         product_quantity, 
         product_type
     FROM 
-        {{source ('bronze_sales') }}
+        {{ ref('bronze_sales') }}
     WHERE 
         product_value > 0 
         AND product_value < 8000
