@@ -6,13 +6,14 @@ WITH sales_by_seller AS (
         product_quantity, 
         product_type 
     FROM 
-        {{ ref('silver_sales')}} 
+        {{ ref('silver_sales') }}
     WHERE 
         product_value < 6000 
         AND date_day >= '2024-09-01' 
         AND date_day <= '2024-09-11'
-    )
-    WITH sales_aggregated_seller AS (
+    ),
+    
+    sales_aggregated_seller AS (
         SELECT 
             seller, 
             date_day, 
@@ -25,12 +26,13 @@ WITH sales_by_seller AS (
             seller, 
             date_day
     )
+
     SELECT 
         seller, 
         date_day, 
         total_value, 
         total_quantity, 
-        total_vendas
+        total_sales
     FROM 
         sales_aggregated_seller
     ORDER BY 
