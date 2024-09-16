@@ -7,3 +7,7 @@ To analyze the data we have in the **Sales** table, we will create a view and ap
 **DBT**
 
 **DBT** is a tool specialized in performing data ETL. It has the Software Engineering structure for the Data area.
+
+- Bronze Dataset:
+    - copy of the raw dataset;
+
