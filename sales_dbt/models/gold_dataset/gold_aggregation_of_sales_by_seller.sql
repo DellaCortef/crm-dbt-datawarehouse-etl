@@ -17,9 +17,9 @@ WITH sales_by_seller AS (
         SELECT 
             seller, 
             date_day, 
-            SUM(product_value) AS total_value, 
+            SUM(product_value) AS total_sales, 
             SUM(product_quantity) AS total_quantity, 
-            COUNT(*) AS total_sales
+            COUNT(*) AS total_transactions
         FROM 
             sales_by_seller
         GROUP BY 
@@ -30,9 +30,9 @@ WITH sales_by_seller AS (
     SELECT 
         seller, 
         date_day, 
-        total_value, 
+        total_sales, 
         total_quantity, 
-        total_sales
+        total_transactions
     FROM 
         sales_aggregated_seller
     ORDER BY 

@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: gold_last_seven_days
+    description: "Gold table that aggregates sales by product in the last 7 days, displaying total sales and the number of products sold."
+    columns:
+      - name: date_day
+        description: "Aggregate sale date."
+      - name: product_type
+        description: "Name of product sold."
+      - name: total_sales
+        description: "Total sales value of the product on the specified date."
+      - name: total_quantity
+        description: "Total quantity of products sold on the specified date."
+      - name: total_transactions
+        description: "Total number of product sales transactions on the specified date."
+
+  - name: gold_aggregation_of_sales_by_seller
+    description: "Gold table that aggregates sales by seller over the last 7 days, displaying the performance of each seller in terms of value, quantity and number of sales."
+    columns:
+      - name: seller
+        description: "Email of the seller who made the sales."
+      - name: date_day
+        description: "Date of aggregate sales by seller."
+      - name: total_sales
+        description: "Total value of sales made by the seller on the specified date."
+      - name: total_quantity
+        description: "Total quantity of products sold by the seller on the specified date."
+      - name: total_transactions
+        description: "Total number of transactions carried out by the seller on the specified date."
