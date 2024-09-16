@@ -106,4 +106,4 @@ WITH sales_by_seller AS (
     FROM 
         sales_aggregated_seller
     ORDER BY 
-        date_day ASC, seller ASC;
+        date_day ASC, seller ASC
