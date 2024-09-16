@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: sales_source
+    schema: public
+    tables:
+      - name: sales
+        description: "Table with raw sales data"
