@@ -8,9 +8,9 @@ WITH sales_seven_days AS (
         SUM(product_quantity) AS total_quantity, 
         COUNT(*) AS total_transactions
     FROM 
-        {{ ref('silver_vendas') }}
+        {{ ref('silver_sales') }}
     WHERE 
-        data >= CURRENT_DATE - INTERVAL '6 days'
+        date_day >= CURRENT_DATE - INTERVAL '6 days'
     GROUP BY 
         date_day, product_type
 )
@@ -18,9 +18,9 @@ WITH sales_seven_days AS (
     SELECT 
         date_day, 
         product_type, 
-        total_value, 
+        total_sales, 
         total_quantity, 
-        total_sales
+        total_transactions
     FROM 
         sales_seven_days
     ORDER BY 
