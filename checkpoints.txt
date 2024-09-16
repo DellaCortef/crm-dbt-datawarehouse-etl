@@ -143,4 +143,5 @@
         i. add profiles.yml in .gitignore
     - create dbt_project.yml inside sales_dbt_folder;
     - run dbt debug on terminal;
-    - run dbt run on terminal;
+    - run dbt run on terminal:
+        i. our view will be created at ou database
