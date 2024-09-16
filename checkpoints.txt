@@ -124,3 +124,10 @@
 6. gold dataset:
     - aggregation by day;
     - aggregation by value;
+
+7. create sources.yml
+    - table names;
+    - table origin;
+
+8. create schema.yml
+    - table documentation
