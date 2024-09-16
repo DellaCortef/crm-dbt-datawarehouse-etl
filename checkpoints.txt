@@ -148,3 +148,6 @@
 
 11. silver dataset:
     - as we created our view on bronze dataset, we can use as source for silver dataset
+
+12. gold dataset:
+    - as we created our view on silver dataset, we can use as source for gold dataset
