@@ -134,3 +134,6 @@
 
 9. create models.sql
     - documentation of out ETL in SQL;
+    - bronze_sales.sql;
+    - silver_sales.sql;
+    - gold_sales.sql;
