@@ -31,43 +31,43 @@
             product_value DESC
 
 -- aggregation of Sales by Day and Product
-        WITH vendas_filtradas AS (
+        WITH filtered_sales AS (
             SELECT 
                 email, 
-                DATE(data) AS dia, 
-                valor, 
-                quantidade, 
-                produto 
+                DATE(date_time) AS date_day, 
+                product_value, 
+                product_quantity, 
+                product_type 
             FROM 
-                vendas 
+                sales 
             WHERE 
-                valor < 6000 
-                AND data >= '2024-09-01' 
-                AND data <= '2024-09-11'
+                product_value < 6000 
+                AND date_time >= '2024-09-01' 
+                AND date_time <= '2024-09-11'
         ),
-        vendas_agregadas AS (
+        aggregated_sales AS (
             SELECT 
-                dia, 
-                produto, 
-                SUM(valor) AS total_valor, 
-                SUM(quantidade) AS total_quantidade,
-                COUNT(*) AS total_vendas
+                date_day, 
+                product_type, 
+                SUM(product_value) AS total_value, 
+                SUM(product_quantity) AS total_quantity,
+                COUNT(*) AS total_sales
             FROM 
-                vendas_filtradas
+                filtered_sales
             GROUP BY 
-                dia, 
-                produto
+                date_day, 
+                product_type
         )
         SELECT 
-            dia, 
-            produto, 
-            total_valor, 
-            total_quantidade, 
-            total_vendas
+            date_day, 
+            product_type, 
+            total_value, 
+            total_quantity, 
+            total_sales
         FROM 
-            vendas_agregadas
+            aggregated_sales
         ORDER BY 
-            dia ASC, produto ASC;
+            date_day ASC, product_type ASC;
     
 -- aggregation of Sales by seller
 WITH sales_by_seller AS (
