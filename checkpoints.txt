@@ -151,3 +151,6 @@
 
 12. gold dataset:
     - as we created our view on silver dataset, we can use as source for gold dataset
+
+13. creating schema.yml on gold_dataset:
+    - documentation of my tables and columns;
