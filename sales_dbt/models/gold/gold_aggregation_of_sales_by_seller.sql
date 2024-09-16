@@ -1,7 +1,7 @@
 WITH sales_by_seller AS (
     SELECT 
         email AS seller, 
-        DATE(data) AS date_day, 
+        DATE(date_day) AS date_day, 
         product_value, 
         product_quantity, 
         product_type 
@@ -9,8 +9,8 @@ WITH sales_by_seller AS (
         {{ ref('silver_sales') }}  
     WHERE 
         product_value < 6000 
-        AND data >= '2024-09-01' 
-        AND data <= '2024-09-11'
+        AND date_day >= '2024-09-01' 
+        AND date_day <= '2024-09-11'
     ),
     vendas_aggregated_vendedor AS (
         SELECT 
