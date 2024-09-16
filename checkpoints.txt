@@ -114,10 +114,12 @@
 
 3. create view to use ETL on DBT
 
-4. <ins>**bronze**</ins> dataset
+4. bronze dataset
     - copy of the raw dataset
 
-5. <ins>silver</ins> Dataset:
+5. silver Dataset:
     - clear unfounded dates;
     - aggregation of sales in the last 7 days;
+
+
 
