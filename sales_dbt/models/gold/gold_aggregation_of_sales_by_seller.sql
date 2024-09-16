@@ -12,7 +12,7 @@ WITH sales_by_seller AS (
         AND date_day >= '2024-09-01' 
         AND date_day <= '2024-09-11'
     )
-    sales_aggregated_seller AS (
+    WITH sales_aggregated_seller AS (
         SELECT 
             seller, 
             date_day, 
