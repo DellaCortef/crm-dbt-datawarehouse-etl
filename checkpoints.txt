@@ -137,3 +137,10 @@
     - bronze_sales.sql;
     - silver_sales.sql;
     - gold_sales.sql;
+
+10. to run dbt:
+    - create profiles.yml inside sales_dbt folder;
+        i. add profiles.yml in .gitignore
+    - create dbt_project.yml inside sales_dbt_folder;
+    - run dbt debug on terminal;
+    - run dbt run on terminal;
