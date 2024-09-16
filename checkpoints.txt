@@ -113,3 +113,7 @@
             dia ASC, vendedor ASC;
 
 3. create view to use ETL on DBT
+
+4. bronze dataset
+    - copy of the raw dataset
+
