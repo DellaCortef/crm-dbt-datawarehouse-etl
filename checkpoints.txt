@@ -117,9 +117,10 @@
 4. bronze dataset
     - copy of the raw dataset
 
-5. silver Dataset:
+5. silver dataset:
     - clear unfounded dates;
     - aggregation of sales in the last 7 days;
 
-
-
+6. gold dataset:
+    - aggregation by day;
+    - aggregation by value;
