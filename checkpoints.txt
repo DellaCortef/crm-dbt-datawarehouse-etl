@@ -1,4 +1,115 @@
 1. data exploratory analysis
     - creating some queries to analyse our data
 
-2. create view to use ETL on DBT
+2. queries
+    - last week Sales
+        SELECT 
+            DATE(data) AS dia, 
+            SUM(valor) AS total_vendas, 
+            COUNT(*) AS total_transacoes 
+        FROM 
+            vendas 
+        WHERE 
+            data >= CURRENT_DATE - INTERVAL '6 days' 
+            AND data < CURRENT_DATE + INTERVAL '1 day' 
+        GROUP BY 
+            DATE(data) 
+        ORDER BY 
+            dia DESC
+    
+    - sales with price value lesse than 6k
+        SELECT 
+            email, 
+            data, 
+            valor, 
+            quantidade, 
+            produto 
+        FROM 
+            vendas 
+        WHERE 
+            valor < 6000 
+            AND data >= '2024-09-01' 
+            AND data <= '2024-09-11'
+        ORDER BY 
+            data ASC, 
+            valor DESC
+
+    - aggregation of Sales by Day and Product
+        WITH vendas_filtradas AS (
+            SELECT 
+                email, 
+                DATE(data) AS dia, 
+                valor, 
+                quantidade, 
+                produto 
+            FROM 
+                vendas 
+            WHERE 
+                valor < 6000 
+                AND data >= '2024-09-01' 
+                AND data <= '2024-09-11'
+        ),
+        vendas_agregadas AS (
+            SELECT 
+                dia, 
+                produto, 
+                SUM(valor) AS total_valor, 
+                SUM(quantidade) AS total_quantidade,
+                COUNT(*) AS total_vendas
+            FROM 
+                vendas_filtradas
+            GROUP BY 
+                dia, 
+                produto
+        )
+        SELECT 
+            dia, 
+            produto, 
+            total_valor, 
+            total_quantidade, 
+            total_vendas
+        FROM 
+            vendas_agregadas
+        ORDER BY 
+            dia ASC, produto ASC;
+    
+    - aggregation of Sales by seller
+        WITH vendas_por_vendedor AS (
+            SELECT 
+                email AS vendedor, 
+                DATE(data) AS dia, 
+                valor, 
+                quantidade, 
+                produto 
+            FROM 
+                vendas 
+            WHERE 
+                valor < 6000 
+                AND data >= '2024-09-01' 
+                AND data <= '2024-09-11'
+        ),
+        vendas_aggregated_vendedor AS (
+            SELECT 
+                vendedor, 
+                dia, 
+                SUM(valor) AS total_valor, 
+                SUM(quantidade) AS total_quantidade, 
+                COUNT(*) AS total_vendas
+            FROM 
+                vendas_por_vendedor
+            GROUP BY 
+                vendedor, 
+                dia
+        )
+        SELECT 
+            vendedor, 
+            dia, 
+            total_valor, 
+            total_quantidade, 
+            total_vendas
+        FROM 
+            vendas_aggregated_vendedor
+        ORDER BY 
+            dia ASC, vendedor ASC;
+
+3. create view to use ETL on DBT
