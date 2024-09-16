@@ -117,7 +117,7 @@
 4. <ins>**bronze**</ins> dataset
     - copy of the raw dataset
 
-5. <ins>**silver**</ins> Dataset:
+5. <ins>silver</ins> Dataset:
     - clear unfounded dates;
     - aggregation of sales in the last 7 days;
 
