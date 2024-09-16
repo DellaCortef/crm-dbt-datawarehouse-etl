@@ -11,7 +11,7 @@ WITH sales_by_seller AS (
         product_value < 6000 
         AND date_day >= '2024-09-01' 
         AND date_day <= '2024-09-11'
-    ),
+    )
     vendas_aggregated_vendedor AS (
         SELECT 
             seller, 
