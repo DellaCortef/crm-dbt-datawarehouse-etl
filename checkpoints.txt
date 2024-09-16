@@ -154,3 +154,6 @@
 
 13. creating schema.yml on gold_dataset:
     - documentation of my tables and columns;
+    - run dbt docs generate;
+    - run dbt docs serve --port 8081:
+        i. it generates a docs and a lineage graph of my data;
