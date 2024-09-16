@@ -11,7 +11,8 @@ WITH sales_by_seller AS (
         product_value < 6000 
         AND date_day >= '2024-09-01' 
         AND date_day <= '2024-09-11'
-    ),
+    )
+
     sales_aggregated_seller AS (
         SELECT 
             seller, 
@@ -25,6 +26,7 @@ WITH sales_by_seller AS (
             seller, 
             date_day
     )
+
     SELECT 
         seller, 
         date_day, 
@@ -34,3 +36,4 @@ WITH sales_by_seller AS (
     FROM 
         sales_aggregated_seller
     ORDER BY 
+        date_day ASC, seller ASC
