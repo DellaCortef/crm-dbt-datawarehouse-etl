@@ -2,6 +2,8 @@
 .env
 .venv
 
+# Don’t commit the following directories created by pub.
 target/
 dbt_packages/
 logs/
+.yml
