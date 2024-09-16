@@ -145,3 +145,6 @@
     - run dbt debug on terminal;
     - run dbt run on terminal:
         i. our view will be created at ou database
+
+11. silver dataset:
+    - as we created our view on bronze dataset, we can use as source for silver dataset
