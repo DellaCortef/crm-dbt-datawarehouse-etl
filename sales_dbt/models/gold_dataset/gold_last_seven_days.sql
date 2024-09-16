@@ -1,15 +1,27 @@
 {{ config(materialized='view') }}
 
-SELECT 
-    date_day, 
-    SUM(product_value) AS total_sales, 
-    COUNT(*) AS total_transactions
-FROM 
-    {{ ref('silver_sales') }} 
-WHERE 
-    date_day >= CURRENT_DATE - INTERVAL '6 days' 
-    AND date_day < CURRENT_DATE + INTERVAL '1 day' 
-GROUP BY 
-    DATE(date_day) 
-ORDER BY 
-    date_day DESC
+WITH sales_seven_days AS (
+    SELECT 
+        date_day, 
+        product_type, 
+        SUM(product_value) AS total_sales, 
+        SUM(product_quantity) AS total_quantity, 
+        COUNT(*) AS total_transactions
+    FROM 
+        {{ ref('silver_vendas') }}
+    WHERE 
+        data >= CURRENT_DATE - INTERVAL '6 days'
+    GROUP BY 
+        date_day, product_type
+)
+
+    SELECT 
+        date_day, 
+        product_type, 
+        total_value, 
+        total_quantity, 
+        total_sales
+    FROM 
+        sales_seven_days
+    ORDER BY 
+        date_day ASC
