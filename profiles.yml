@@ -1,0 +1,12 @@
+sales_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: dpg-crhgqjo8fa8c7392d930-a.oregon-postgres.render.com
+      user: dellapostgre
+      password: JaGdO5UMlunE33MeShud3kJJxB1gvzT6
+      port: 5432
+      dbname: datajourneydatapipeline
+      schema: sales
+      threads: 4 
