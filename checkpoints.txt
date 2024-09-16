@@ -130,4 +130,7 @@
     - table origin;
 
 8. create schema.yml
-    - table documentation
+    - table documentation;
+
+9. create models.sql
+    - documentation of out ETL in SQL;
