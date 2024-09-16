@@ -11,3 +11,7 @@ To analyze the data we have in the **Sales** table, we will create a view and ap
 - Bronze Dataset:
     - copy of the raw dataset;
 
+- Silver Dataset:
+    - clear unfounded dates;
+    - aggregation of sales in the last 7 days;
+
