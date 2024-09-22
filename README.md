@@ -18,7 +18,7 @@ The CRM development series has three stages:
 
 **crm-ia-gen-application:**
 
-- 
+- repository focused on integrating AI Gen applications with our web application. We will perform the integration to get answers to our questions, providing a web frontend as a GUI.
 
 
 ### Analytics Engineering Process
