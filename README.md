@@ -16,7 +16,7 @@ The CRM development series has three stages:
 
 - repository focused on applying the necessary transformations to the data, using **DBT** as a tool. We will create our *medallion* layers, such as bronze, silver and gold, and apply the business rules to create the necessary tables or views for Business.
 
-** :**
+**crm-ia-gen-application:**
 
 - 
 
